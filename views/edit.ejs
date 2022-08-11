@@ -17,30 +17,34 @@
 <body>
     
     <section class="todo-container">
-        <h2>Edit List Item</h2>
-        
         <section class="topContainer">
             <ul class="todo-list">
                 <% todoTasks.forEach(task => {%>
                     <% if(task._id == idTask) { %>
                         <li class="todo-list-item">
+                            <h2>Edit List Item</h2>
                             <form action="/edit/<%= task._id%>" method="POST">
                                 <input type="text" name="title" value="<%=task.title%>">
-                                <textarea name="content" id="" cols="30" rows="10"><%=task.content%></textarea>
-                                <button class="confirmBtn" type="submit">confirm</button>
-                                <a href="/" class="cancelBtn">cancel</a>
+                                <textarea name="content" cols="30" rows="10"><%=task.content%></textarea>
+                                <div class="btnContainer">
+                                    <button class="confirmBtn" type="submit">confirm</button>
+                                    <a href="/" class="cancelBtn">cancel</a>
+                                </div>
                             </form>
                         </li>
                     <% } else { %>
                          <li class="todo-list-item">
-                             <div class="todo-list-item-title">
-                                <%= task.title %>
+                            <div class="todo-list-item-title">
+                                <h5 class="taskTitle"><%= task.title %></h5>
+    
+                                <div class="iconsContainer">
+                                    <a href="/edit/<%= task._id %>" class="edit"><span class="fas fa-edit"></span></a>
+                                    <a href="/remove/<%= task._id %>" class="remove"><span class="fas fa-times"></span></a>
+                                </div>
                             </div>
                             <div class="todo-list-item-content">
-                                <%= task.content %>
+                                <p class="taskContent"><%= task.content %></p>
                             </div>
-                            <a href="/edit/<%=task._id %>" class="edit"><span class="fas fa-edit"></span></a>
-                            <a href="/remove/<%= task._id %>" class="remove"><span class="fas fa-times"></span></a>
                          </li>
                     <% } %>
                 <% }) %>
