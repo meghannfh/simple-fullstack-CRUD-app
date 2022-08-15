@@ -92,4 +92,4 @@ app
     })
 
 
-app.listen(process.env.PORT || PORT, () => console.log(`server is running on ${PORT}`))
+app.listen(PORT || 3500, () => console.log(`server is running on ${PORT}`))
