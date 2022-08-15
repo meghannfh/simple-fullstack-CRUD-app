@@ -1,8 +1,8 @@
 //Declare variables and required modules
 const express = require("express");
 const app = express();
+let PORT = 3005;
 const mongoose = require("mongoose");
-const todotask = require("./models/TodoTask");
 const TodoTask = require("./models/TodoTask");
 require('dotenv').config()
 
@@ -90,4 +90,6 @@ app
         })
     })
 
-app.listen(process.env.PORT || PORT, () => console.log(`server is running on ${PORT}`))
+    app.listen(process.env.PORT || PORT, () => {
+        console.log(`Server running on port ${PORT}.`)
+    })
