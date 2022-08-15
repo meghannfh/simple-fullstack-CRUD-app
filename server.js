@@ -1,7 +1,6 @@
 //Declare variables and required modules
 const express = require("express");
 const app = express();
-const PORT = 3005;
 const mongoose = require("mongoose");
 const todotask = require("./models/TodoTask");
 const TodoTask = require("./models/TodoTask");
@@ -91,5 +90,6 @@ app
         })
     })
 
+const PORT = process.env.PORT || 80
 
-app.listen(PORT || 3500, () => console.log(`server is running on ${PORT}`))
+app.listen(PORT, () => console.log(`server is running on ${PORT}`))
