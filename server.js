@@ -90,6 +90,6 @@ app
         })
     })
 
-const PORT = process.env.PORT || 80
+let PORT = process.env.PORT || 80
 
 app.listen(PORT, () => console.log(`server is running on ${PORT}`))
