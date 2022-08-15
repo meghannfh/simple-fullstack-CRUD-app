@@ -90,6 +90,4 @@ app
         })
     })
 
-let PORT = process.env.PORT || 80
-
-app.listen(PORT, () => console.log(`server is running on ${PORT}`))
+app.listen(process.env.PORT || PORT, () => console.log(`server is running on ${PORT}`))
