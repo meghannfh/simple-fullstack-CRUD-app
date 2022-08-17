@@ -12,8 +12,7 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }));
 
 //Connect to Mongo
-mongoose.connect(
-    "mongodb+srv://meg:lKzjC7UsATWmiDDj@cluster0.hkmfzai.mongodb.net/fullstack-crud-todo-app?retryWrites=true&w=majority", 
+mongoose.connect(process.env.MONGO_URI, 
     { useNewUrlParser: true }, 
     () => {console.log("Connected to db!");}
 )
